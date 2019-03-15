@@ -9,17 +9,27 @@
 
 只有中国的数据精确到了城市，其他国家只能定位到国家，后前的选项全部是0，已经包含了全部你能查到的大大小小的国家。 （请忽略前面的城市Id，个人项目需求）
 
-# 3. 使用方法
+# 3. Composer 安装
 <pre>
-//require_once '../src/Ip2Region.class.php';//使用composer无需手动引入
+composer require bianchengxia/ip
+</pre>
+# 4. 使用方法
+<pre>
+require_once '../src/Ip2Region.class.php';//使用composer无需手动引入
 //$ip2region = new \Ip2Region();//适用于命名空间
 $ip2region = new Ip2Region();//适用于没有使用命名空间
 $ip = '113.205.63.37';
 $info = $ip2region->btreeSearch($ip);
+if (!empty($info)) {
+    $info = explode('|', $info);
+}
 -------------------------------------
 Array
 (
-    [city_id] => 2430
-    [region] => 中国|0|重庆|重庆市|联通
+    [0] => 中国
+    [1] => 0
+    [2] => 重庆
+    [3] => 重庆市
+    [4] => 联通
 )
 </pre>
