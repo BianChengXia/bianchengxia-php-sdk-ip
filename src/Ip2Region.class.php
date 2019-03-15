@@ -58,10 +58,11 @@ class Ip2Region
         if ($dataPtr == 0) return NULL;
         $dataLen = (($dataPtr >> 24) & 0xFF);
         $dataPtr = ($dataPtr & 0x00FFFFFF);
-        return array(
+        /*return array(
             'city_id' => self::getLong($this->dbBinStr, $dataPtr),
             'region' => substr($this->dbBinStr, $dataPtr + 4, $dataLen - 4)
-        );
+        );*/
+        return substr($this->dbBinStr, $dataPtr + 4, $dataLen - 4);
     }
 
     public function binarySearch($ip)
@@ -108,10 +109,11 @@ class Ip2Region
         fseek($this->dbFileHandler, $dataPtr);
         $data = fread($this->dbFileHandler, $dataLen);
 
-        return array(
+        /*return array(
             'city_id' => self::getLong($data, 0),
             'region' => substr($data, 4)
-        );
+        );*/
+        return substr($data, 4);
     }
 
     public function btreeSearch($ip)
@@ -209,10 +211,11 @@ class Ip2Region
         $dataPtr = ($dataPtr & 0x00FFFFFF);
         fseek($this->dbFileHandler, $dataPtr);
         $data = fread($this->dbFileHandler, $dataLen);
-        return array(
+        /*return array(
             'city_id' => self::getLong($data, 0),
             'region' => substr($data, 4)
-        );
+        );*/
+        return substr($data, 4);
     }
 
     public static function safeIp2long($ip)
