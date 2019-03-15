@@ -1,0 +1,9 @@
+{
+  "name": "open/ip",
+  "description": "bianchengxia-php-sdk-ip",
+  "homepage": "https://www.bianchengxia.com/",
+  "version": "1.0.0",
+  "require": {
+    "php": ">=5.3.5"
+  }
+}
