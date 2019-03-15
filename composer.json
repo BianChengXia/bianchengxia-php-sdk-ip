@@ -1,9 +1,26 @@
 {
   "name": "bianchengxia/ip",
   "description": "bianchengxia-php-sdk-ip",
+  "type": "library",
   "homepage": "https://www.bianchengxia.com/",
   "version": "1.0.0",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "bianchengxia",
+      "email": "admin@bianchengxia.com"
+    }
+  ],
+  "keywords": [
+    "bianchengxia",
+    "ip"
+  ],
   "require": {
     "php": ">=5.3.5"
+  },
+  "autoload": {
+    "classmap": [
+      "src/Ip2Region.class.php"
+    ]
   }
 }
